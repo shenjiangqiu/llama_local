@@ -15,8 +15,8 @@ itertools = "0.13.0"
 
 [dependencies]
 itertools.workspace = true
-candle-core = {workspace = true, features = ["metal"]}
-kalosm = { workspace = true, features = ["metal", "language"] }
+candle-core = {workspace = true, features = []}
+kalosm = { workspace = true, features = [ "language"] }
 tokio = { workspace = true, features = ["full"] }
 tracing.workspace = true
 tracing-subscriber = { workspace = true, features = [
@@ -28,3 +28,9 @@ tracing-subscriber = { workspace = true, features = [
 
 # [profile.dev.package."*"]
 # opt-level = 1
+[profile.release]
+opt-level = 3
+lto = true
+
+[features]
+metal = ["candle-core/metal", "kalosm/metal"]

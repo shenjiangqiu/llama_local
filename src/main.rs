@@ -12,7 +12,7 @@ async fn main() {
         .with_system_prompt("You are a chatbot named Cloth.")
         .build();
 
-    chat.add_message("Hello, what's your name? just type your name.")
+    chat.add_message("Hello, what's your name?")
         .to_std_out()
         .await
         .unwrap();
