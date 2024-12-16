@@ -1,0 +1,30 @@
+[package]
+name = "llama_local"
+version = "0.1.0"
+edition = "2021"
+[workspace]
+resolver = "2"
+[workspace.dependencies]
+kalosm = { path = "../floneum/interfaces/kalosm" }
+candle-core = "0.8.1"
+tokio = { version = "1.0" }
+tracing-subscriber = { version = "0.3.19" }
+tracing = "0.1.41"
+itertools = "0.13.0"
+
+
+[dependencies]
+itertools.workspace = true
+candle-core = {workspace = true, features = ["metal"]}
+kalosm = { workspace = true, features = ["metal", "language"] }
+tokio = { workspace = true, features = ["full"] }
+tracing.workspace = true
+tracing-subscriber = { workspace = true, features = [
+    "env-filter",
+    "local-time",
+    "fmt",
+] }
+
+
+# [profile.dev.package."*"]
+# opt-level = 1
